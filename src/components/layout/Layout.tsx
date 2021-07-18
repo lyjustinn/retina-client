@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
+import NavHeader from '../navbar/NavHeader';
 import Footer from '../footer/Footer';
 
 import { User } from '../../types/retinaTypes';
@@ -13,7 +13,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({children, param}) => {
     return (
         <div className="d-flex flex-column justify-content-center h-100">
-            <Navbar/>
+            <NavHeader/>
             <div className="flex-grow-1">
                 {children}
             </div>
