@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import LandingPage from '../../pages/landing/LandingPage';
 
 const Routes: React.FC = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={() => <div>main page</div>}/>
+                <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/explore" component={() => <div>explore</div>}/>
                 <Route exact path="/search/:query" component={() => <div>search</div>}/>
                 <Route exact path="/collection/:id" component={() => <div>collection</div>}/>
