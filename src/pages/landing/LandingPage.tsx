@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../components/layout/Layout';
-import getUser from '../../util/auth/getUser';
+import { getUser } from '../../util/user/userService';
 
 const LandingPage: React.FC = ({}) => {
 

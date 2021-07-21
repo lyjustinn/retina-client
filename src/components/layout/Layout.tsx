@@ -6,7 +6,7 @@ import { User } from '../../types/retinaTypes';
 
 interface LayoutProps {
     children: JSX.Element
-    param: string
+    param: string | null
     user : User
 }
 
