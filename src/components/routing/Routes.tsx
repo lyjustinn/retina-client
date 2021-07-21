@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from '../../pages/landing/LandingPage';
+import LoginPage from '../../pages/login/LoginPage';
+import SignupPage from '../../pages/signup/SignupPage';
 
 const Routes: React.FC = () => {
     return (
@@ -12,6 +14,8 @@ const Routes: React.FC = () => {
                 <Route exact path="/collection/:id" component={() => <div>collection</div>}/>
                 <Route exact path="/photo/:id" component={() => <div>photo</div>} />
                 <Route exact path="/user/:id" component={() => <div>user profile</div>}/>
+                <Route exact path="/signup" component={SignupPage}/>
+                <Route exact path="/login" component={LoginPage}/>
 
                 {/* Routes that require auth, redirect to 404 if invalid */}
                 <Route exact path="/edit/profile/:id" component={() => <div>edit profile</div>}/>
