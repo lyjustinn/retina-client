@@ -1,4 +1,4 @@
-import { User, NewUser, AuthRequest } from '../../types/retinaTypes';
+import { User, NewUser, AuthRequest } from '../../types/userTypes';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -52,6 +52,27 @@ export const login = async(authRequest: AuthRequest) => {
     });
 
     return true;
+}
+
+export const getCurrentUser = async () => {
+    const jwt : string = cookies.get("authToken");
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    const fetchOptions = {
+        method: 'get',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwt
+        }
+    }
+
+    if (!url || !jwt) return null;
+
+    const response = await fetch(url + "/api/user/current", fetchOptions);
+
+    if (!response.ok) return null;
+
+    return response.json();
 }
 
 export const getUser = () : User => {

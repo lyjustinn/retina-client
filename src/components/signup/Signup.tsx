@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { NewUser } from '../../types/retinaTypes';
+import { NewUser } from '../../types/userTypes';
 import { createUser } from '../../util/user/userService';
 
 interface SignupProps {
