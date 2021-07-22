@@ -19,7 +19,7 @@ const NavHeader: React.FC<NavHeaderProps> = ({}) => {
                         <Nav.Link className="text-light" href="/explore">Explore</Nav.Link>
                     </Nav.Item>
                     <Nav.Item className="mx-4">
-                        <Nav.Link className="text-light" href="/upload/photo">
+                        <Nav.Link className="text-light" href="/upload/image">
                             Upload
                         </Nav.Link>
                     </Nav.Item>

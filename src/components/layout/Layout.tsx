@@ -2,7 +2,7 @@ import React from 'react';
 import NavHeader from '../navbar/NavHeader';
 import Footer from '../footer/Footer';
 
-import { User } from '../../types/retinaTypes';
+import { User } from '../../types/userTypes';
 
 interface LayoutProps {
     children: JSX.Element

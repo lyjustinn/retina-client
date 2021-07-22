@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { AuthRequest } from '../../types/retinaTypes';
+import { AuthRequest } from '../../types/userTypes';
 import { login } from '../../util/user/userService';
 
 interface LoginProps {
