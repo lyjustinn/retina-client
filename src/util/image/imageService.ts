@@ -1,13 +1,13 @@
-import { NewPhotoText } from '../../types/imageTypes';
+import { NewImageText } from '../../types/imageTypes';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
 
-export const createPhoto = async (photoDesc : NewPhotoText, photo : File) => {
+export const createImage = async (imageDesc : NewImageText, image : File) => {
     const formData = new FormData();
 
-    formData.append("file", photo);
-    formData.append("imageData", JSON.stringify(photoDesc));
+    formData.append("file", image);
+    formData.append("imageData", JSON.stringify(imageDesc));
 
     const jwt : string = cookies.get("authToken");
     const fetchOptions = {

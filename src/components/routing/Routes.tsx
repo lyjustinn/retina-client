@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from '../../pages/landing/LandingPage';
 import LoginPage from '../../pages/login/LoginPage';
-import ImageUploadPage from '../../pages/photoUpload/PhotoUploadPage';
+import ImageUploadPage from '../../pages/imageUpload/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
 
 const Routes: React.FC = () => {

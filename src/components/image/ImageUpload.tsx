@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import { NewImageText } from '../../types/imageTypes';
+import { createImage } from '../../util/image/imageService'; 
 
-interface PhotoUploadProps {
+interface ImageUploadProps {
 
 }
 
-const PhotoUpload: React.FC<PhotoUploadProps> = ({}) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({}) => {
     const [input, setInput] = useState<{
         [key: string]: any
     }>({
@@ -38,6 +40,13 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({}) => {
         
         if (!input.name || !input.image || !file) return 
         // call API
+
+        const imageDesc : NewImageText = {
+            name: input.name,
+            description: input.description
+        }
+        
+        createImage(imageDesc, file)
     }
 
     return (
@@ -52,4 +61,4 @@ const PhotoUpload: React.FC<PhotoUploadProps> = ({}) => {
 
     );
 }
-export default PhotoUpload;
+export default ImageUpload;
