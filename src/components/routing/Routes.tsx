@@ -5,6 +5,7 @@ import LoginPage from '../../pages/login/LoginPage';
 import ImageUploadPage from '../../pages/image/imageUpload/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
 import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
+import SearchPage from '../../pages/image/search/SearchPage';
 
 const Routes: React.FC = () => {
     return (
@@ -12,7 +13,7 @@ const Routes: React.FC = () => {
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/explore" component={() => <div>explore</div>}/>
-                <Route exact path="/search/:query" component={() => <div>search</div>}/>
+                <Route exact path="/search/:query" component={SearchPage}/>
                 <Route exact path="/collection/:id" component={() => <div>collection</div>}/>
                 <Route exact path="/image/:id" component={ImageDetailsPage} />
                 <Route exact path="/user/:id" component={() => <div>user profile</div>}/>

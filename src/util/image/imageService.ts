@@ -38,3 +38,16 @@ export const getImage = async(id : number) : Promise<Image> => {
 
     return response.json();
 }
+
+export const searchImages = async(query: string) : Promise<Array<Image>> => {
+
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) throw new Error("invalid API url");
+
+    const response = await fetch(url + "/api/image/search/" + query);
+
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return response.json();
+}
