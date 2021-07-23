@@ -1,4 +1,4 @@
-import { NewImageText } from '../../types/imageTypes';
+import { Image, NewImageText } from '../../types/imageTypes';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -26,16 +26,15 @@ export const createImage = async (imageDesc : NewImageText, image : File) => {
     return response.ok;
 }
 
-export const getImage = async(id : number) => {
+export const getImage = async(id : number) : Promise<Image> => {
 
     const url: string = process.env.REACT_APP_API_URL ?? "";
 
-    if (!url) return null;
+    if (!url) throw new Error("invalid API url");
 
     const response = await fetch(url + "/api/image/" + id);
 
-    if (!response.ok) return null;
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
     return response.json();
-
 }

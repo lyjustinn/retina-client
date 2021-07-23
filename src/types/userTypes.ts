@@ -1,9 +1,10 @@
-interface RetinaUser {
+interface UserInterface {
     username: string,
     name: string
+    description: string | null
 }
 
-export type User = RetinaUser | null
+export type User = UserInterface | null;
 
 export interface NewUser {
     username: string,

@@ -78,6 +78,7 @@ export const getCurrentUser = async () => {
 export const getUser = () : User => {
     return {
         username: "johndoe@email.com",
-        name: "john doe"
+        name: "john doe",
+        description: null
     }
 }
