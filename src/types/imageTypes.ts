@@ -1,3 +1,5 @@
+import { User } from "./userTypes";
+
 export interface NewImageText {
     name: string,
     description: string
@@ -5,8 +7,8 @@ export interface NewImageText {
 
 interface ImageInterface {
     name: string,
-    description: string,
-    owner: object,
+    description: string | null,
+    owner: User,
     resourceLink: string
 }
 
