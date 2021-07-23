@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from '../../pages/landing/LandingPage';
 import LoginPage from '../../pages/login/LoginPage';
-import ImageUploadPage from '../../pages/imageUpload/ImageUploadPage';
+import ImageUploadPage from '../../pages/image/imageUpload/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
+import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
 
 const Routes: React.FC = () => {
     return (
@@ -13,7 +14,7 @@ const Routes: React.FC = () => {
                 <Route exact path="/explore" component={() => <div>explore</div>}/>
                 <Route exact path="/search/:query" component={() => <div>search</div>}/>
                 <Route exact path="/collection/:id" component={() => <div>collection</div>}/>
-                <Route exact path="/image/:id" component={() => <div>photo</div>} />
+                <Route exact path="/image/:id" component={ImageDetailsPage} />
                 <Route exact path="/user/:id" component={() => <div>user profile</div>}/>
                 <Route exact path="/signup" component={SignupPage}/>
                 <Route exact path="/login" component={LoginPage}/>

@@ -26,4 +26,16 @@ export const createImage = async (imageDesc : NewImageText, image : File) => {
     return response.ok;
 }
 
-export {}
+export const getImage = async(id : number) => {
+
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) return null;
+
+    const response = await fetch(url + "/api/image/" + id);
+
+    if (!response.ok) return null;
+
+    return response.json();
+
+}
