@@ -14,3 +14,8 @@ interface ImageInterface {
 }
 
 export type Image = ImageInterface;
+
+export interface ImageUpdateRequest {
+    name : string,
+    description : string
+}
