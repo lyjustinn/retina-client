@@ -6,6 +6,7 @@ export interface NewImageText {
 }
 
 interface ImageInterface {
+    id: number,
     name: string,
     description: string | null,
     owner: User,
