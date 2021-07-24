@@ -8,6 +8,7 @@ import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
 import SearchPage from '../../pages/image/search/SearchPage';
 import ExplorePage from '../../pages/tag/explore/ExplorePage';
 import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
+import UserProfilePage from '../../pages/user/userProfile/UserProfilePage';
 
 const Routes: React.FC = () => {
     return (
@@ -18,7 +19,7 @@ const Routes: React.FC = () => {
                 <Route exact path="/search/:query" component={SearchPage}/>
                 <Route exact path="/tag/:id" component={TagDetailsPage}/>
                 <Route exact path="/image/:id" component={ImageDetailsPage} />
-                <Route exact path="/user/:id" component={() => <div>user profile</div>}/>
+                <Route exact path="/user/:id" component={UserProfilePage}/>
                 <Route exact path="/signup" component={SignupPage}/>
                 <Route exact path="/login" component={LoginPage}/>
 

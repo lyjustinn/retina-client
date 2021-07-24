@@ -75,11 +75,15 @@ export const getCurrentUser = async () => {
     return response.json();
 }
 
-export const getUser = () : User => {
-    return {
-        id: 1,
-        username: "johndoe@email.com",
-        name: "john doe",
-        description: null
-    }
+export const getUser = async (id : number) : Promise<User> => {
+
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) throw new Error("invalid API url");
+
+    const response = await fetch(url + "/api/user/" + id);
+
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return response.json();
 }
