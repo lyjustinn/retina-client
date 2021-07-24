@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
-import { Image } from '../../../types/imageTypes';
+import { Image, ImageUpdateRequest } from '../../../types/imageTypes';
+import { deleteImage, updateImage } from '../../../util/image/imageService';
 
 interface ImageEditFormProps {
     image : Image
@@ -26,14 +27,20 @@ const ImageEditForm: React.FC<ImageEditFormProps> = ({image}) => {
     const handleDelete = (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         
-        // send delete request
+        deleteImage(image.id);
     } 
 
     const handleSubmit = (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         
+        if (!input.name) return
 
-        // send update request
+        const updateRequest : ImageUpdateRequest = {
+            name : input.name,
+            description : input.description
+        }
+
+        updateImage(updateRequest, image.id);
     }
 
     return (
