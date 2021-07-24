@@ -59,6 +59,7 @@ export const updateImage = async (data : ImageUpdateRequest, id : number) => {
     const fetchOptions = {
         method: 'put',
         headers: {
+            "Content-Type": "application/json",
             "Authorization": "Bearer " + jwt
         },
         body: body
