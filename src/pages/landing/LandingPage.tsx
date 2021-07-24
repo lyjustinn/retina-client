@@ -4,10 +4,10 @@ import { getUser } from '../../util/user/userService';
 
 const LandingPage: React.FC = ({}) => {
 
-    const user = getUser();
+    // const user = getUser();
 
     return (
-        <Layout param="temp" user={user}>
+        <Layout param="temp" user={null}>
             <div>this is the landing page</div>
         </Layout>
     );
