@@ -2,10 +2,10 @@ interface UserInterface {
     id: number
     username: string,
     name: string
-    description: string | null
+    bio: string | null
 }
 
-export type User = UserInterface | null;
+export type User = UserInterface;
 
 export interface NewUser {
     username: string,
@@ -16,4 +16,10 @@ export interface NewUser {
 export interface AuthRequest {
     username: string,
     password: string
+}
+
+export interface UpdateRequest {
+    name : string,
+    bio: string,
+    password : string
 }
