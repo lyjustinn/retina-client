@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import { Image } from '../../../types/imageTypes';
 
 interface ImageEditFormProps {
-
+    image : Image
 }
 
-const ImageEditForm: React.FC<ImageEditFormProps> = ({}) => {
+const ImageEditForm: React.FC<ImageEditFormProps> = ({image}) => {
     const [input, setInput] = useState<{ [key:string] : string}>({
         name: "",
         description: ""
