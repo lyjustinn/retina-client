@@ -1,4 +1,5 @@
 interface UserInterface {
+    id: number
     username: string,
     name: string
     description: string | null
