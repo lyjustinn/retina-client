@@ -7,7 +7,7 @@ interface ImageDetailsProps {
 }
 
 const ImageDetails: React.FC<ImageDetailsProps> = ({id}) => {
-    const [image, setImage] = useState<Image>(null);
+    const [image, setImage] = useState<Image | null>(null);
 
     useEffect(() => {
         getImage(id)

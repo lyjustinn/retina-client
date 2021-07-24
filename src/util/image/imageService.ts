@@ -1,4 +1,4 @@
-import { Image, NewImageText } from '../../types/imageTypes';
+import { Image, ImageUpdateRequest, NewImageText } from '../../types/imageTypes';
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -50,4 +50,43 @@ export const searchImages = async(query: string) : Promise<Array<Image>> => {
     if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
     return response.json();
+}
+
+export const updateImage = async (data : ImageUpdateRequest, id : number) => {
+    const body = JSON.stringify(data);
+
+    const jwt : string = cookies.get("authToken");
+    const fetchOptions = {
+        method: 'put',
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + jwt
+        },
+        body: body
+    }
+
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) return false;
+
+    const response = await fetch(url + "/api/image/" + id, fetchOptions);
+    return response.ok;
+}
+
+export const deleteImage = async (id : number) => {
+
+    const jwt : string = cookies.get("authToken");
+    const fetchOptions = {
+        method: 'delete',
+        headers: {
+            "Authorization": "Bearer " + jwt
+        },
+    }
+
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) return false;
+
+    const response = await fetch(url + "/api/image/" + id, fetchOptions);
+    return response.ok;
 }

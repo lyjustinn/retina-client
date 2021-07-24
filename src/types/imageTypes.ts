@@ -13,4 +13,9 @@ interface ImageInterface {
     resourceLink: string
 }
 
-export type Image = ImageInterface | null
+export type Image = ImageInterface;
+
+export interface ImageUpdateRequest {
+    name : string,
+    description : string
+}
