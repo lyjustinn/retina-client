@@ -7,7 +7,7 @@ import { User } from '../../types/userTypes';
 interface LayoutProps {
     children: JSX.Element
     param: string | null
-    user : User
+    user : User | null
 }
 
 const Layout: React.FC<LayoutProps> = ({children, param}) => {
