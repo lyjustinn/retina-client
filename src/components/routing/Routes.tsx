@@ -6,15 +6,17 @@ import ImageUploadPage from '../../pages/image/imageUpload/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
 import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
 import SearchPage from '../../pages/image/search/SearchPage';
+import ExplorePage from '../../pages/tag/explore/ExplorePage';
+import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
 
 const Routes: React.FC = () => {
     return (
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
-                <Route exact path="/explore" component={() => <div>explore</div>}/>
+                <Route exact path="/explore" component={ExplorePage}/>
                 <Route exact path="/search/:query" component={SearchPage}/>
-                <Route exact path="/collection/:id" component={() => <div>collection</div>}/>
+                <Route exact path="/tag/:id" component={TagDetailsPage}/>
                 <Route exact path="/image/:id" component={ImageDetailsPage} />
                 <Route exact path="/user/:id" component={() => <div>user profile</div>}/>
                 <Route exact path="/signup" component={SignupPage}/>
