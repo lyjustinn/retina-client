@@ -66,11 +66,11 @@ export const getCurrentUser = async () => {
         }
     }
 
-    if (!url || !jwt) return null;
+    if (!url || !jwt) throw new Error("invalid API url");
 
     const response = await fetch(url + "/api/user/current", fetchOptions);
 
-    if (!response.ok) return null;
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
     return response.json();
 }
