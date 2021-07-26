@@ -58,8 +58,8 @@ const Signup: React.FC<SignupProps> = ({}) => {
     }
 
     return (
-        <Container className="d-flex flex-column justify-content-center align-items-center h-100 w-50">
-            <h3>Sign Up</h3>
+        <Container className="d-flex flex-column justify-content-center align-items-center h-100 w-50 retina-text-dark">
+            <h3 >Sign Up</h3>
             <Form noValidate className="w-50" validated={validate} onSubmit={handleSubmit}>
                 <Form.Group className="my-2">
                     <Form.Label>Email Address</Form.Label>
@@ -81,7 +81,7 @@ const Signup: React.FC<SignupProps> = ({}) => {
                     <Form.Control required value={input["password"]} onChange={handleChange} name="password" type="password" placeholder="Password"/>
                     <Form.Control.Feedback type="invalid">Please Enter Your Password</Form.Control.Feedback>
                 </Form.Group>
-                <button className="w-100 my-2">Sign Up</button>
+                <button className="w-100 my-2 retina-btn-dark">Sign Up</button>
             </Form>
         </Container>
     );

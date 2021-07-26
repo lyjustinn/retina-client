@@ -1,0 +1,32 @@
+.retina-btn-dark {
+    padding: 0.5em;
+    background-color: #0F1020;
+    color : #EBF5EE;    
+    border: none;
+    border-radius: 0.25rem;
+    /* 3454D1, 0197F6 */
+}
+
+.retina-btn-dark:active {
+    box-shadow: 0 0 0 0.25rem rgba(15, 16, 32, 0.25);
+}
+
+.retina-bg-dark {
+    background-color: #0F1020;
+}
+
+.retina-text-dark {
+    color: #0F1020;
+}
+
+.retina-text-blue {
+    color: #0197F6;
+}
+
+.retina-text-dark-blue {
+    color: #3454D1;
+}
+
+.retina-text-light {
+    color: #EBF5EE;
+}
