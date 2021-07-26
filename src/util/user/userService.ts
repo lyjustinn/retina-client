@@ -16,10 +16,12 @@ export const createUser = async (newUser : NewUser) => {
 
     const url: string = process.env.REACT_APP_API_URL ?? "";
 
-    if (!url) return false;
+    if (!url) throw new Error("invalid API url");
 
     const response = await fetch(url + "/api/user/", fetchOptions);
-    return response.ok;
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return true;
 }
 
 export const login = async(authRequest: AuthRequest) => {
@@ -35,11 +37,11 @@ export const login = async(authRequest: AuthRequest) => {
 
     const url: string = process.env.REACT_APP_API_URL ?? "";
 
-    if (!url) return false;
+    if (!url) throw new Error("invalid API url");
 
     const response = await fetch(url + "/api/user/authenticate", fetchOptions);
     
-    if(!response.ok) return false;
+    if(!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
     const parsedResponse = await response.json();
 
