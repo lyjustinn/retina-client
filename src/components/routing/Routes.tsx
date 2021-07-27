@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LandingPage from '../../pages/landing/LandingPage';
 import LoginPage from '../../pages/login/LoginPage';
-import ImageUploadPage from '../../pages/image/imageUpload/ImageUploadPage';
+import ImageUploadPage from '../../pages/image/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
 import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
 import SearchPage from '../../pages/image/search/SearchPage';
@@ -12,6 +12,8 @@ import UserProfilePage from '../../pages/user/userProfile/UserProfilePage';
 import UserEditPage from '../../pages/user/userEdit/UserEditPage';
 import ImageEditPage from '../../pages/image/imageEdit/ImageEditPage';
 import NoAuthRoute from './NoAuthRoute';
+import AuthRoute from './AuthRoute';
+import { getCurrentUser } from '../../util/user/userService';
 
 const Routes: React.FC = () => {
     return (
@@ -28,7 +30,7 @@ const Routes: React.FC = () => {
 
                 {/* Routes that require auth, redirect to 404 if invalid */}
                 <Route exact path="/edit/user" component={UserEditPage}/>
-                <Route exact path="/upload/image" component={ImageUploadPage}/>
+                <AuthRoute exact path="/upload/image" component={ImageUploadPage} authorized={getCurrentUser}/>
                 <Route exact path="/edit/image/:id" component={ImageEditPage}/>
                 <Route path="/" component={() => <div>404</div>}/>
             </Switch>

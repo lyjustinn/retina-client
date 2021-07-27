@@ -19,7 +19,7 @@ const NoAuthRoute: React.FC<NoAuthRouteProps> = ({component, path, exact}) => {
     })
 
     const CustomRedirect : React.FC = () => {
-        return <CreateRedirect auth={authObj} Component={component}/>
+        return <CreateRedirect noAuth={true} authObj={authObj} Component={component}/>
     }
 
     useEffect(() => {
@@ -34,6 +34,6 @@ const NoAuthRoute: React.FC<NoAuthRouteProps> = ({component, path, exact}) => {
         }));
     },[])
 
-    return <Route exact={exact ? true : false} path={path} component={CustomRedirect}/>;
+    return <Route exact={exact} path={path} component={CustomRedirect}/>;
 }
 export default NoAuthRoute;
