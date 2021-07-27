@@ -11,6 +11,7 @@ import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
 import UserProfilePage from '../../pages/user/userProfile/UserProfilePage';
 import UserEditPage from '../../pages/user/userEdit/UserEditPage';
 import ImageEditPage from '../../pages/image/imageEdit/ImageEditPage';
+import NoAuthRoute from './NoAuthRoute';
 
 const Routes: React.FC = () => {
     return (
@@ -22,8 +23,8 @@ const Routes: React.FC = () => {
                 <Route exact path="/tag/:id" component={TagDetailsPage}/>
                 <Route exact path="/image/:id" component={ImageDetailsPage} />
                 <Route exact path="/user/:id" component={UserProfilePage}/>
-                <Route exact path="/signup" component={SignupPage}/>
-                <Route exact path="/login" component={LoginPage}/>
+                <NoAuthRoute exact path="/signup" component={SignupPage}/>
+                <NoAuthRoute exact path="/login" component={LoginPage}/>
 
                 {/* Routes that require auth, redirect to 404 if invalid */}
                 <Route exact path="/edit/user" component={UserEditPage}/>

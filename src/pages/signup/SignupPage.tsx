@@ -9,7 +9,7 @@ interface SignupPageProps {
 const SignupPage: React.FC<SignupPageProps> = ({}) => {
     return(
         <Layout param="" user={null}>
-            <Signup/>
+            <Signup />
         </Layout>
     );
 }

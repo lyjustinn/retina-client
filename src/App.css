@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+.retina-btn-dark {
+    padding: 0.5em;
+    background-color: #0F1020;
+    color : #EBF5EE;    
+    border: none;
+    border-radius: 0.25rem;
+    /* 3454D1, 0197F6 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.retina-btn-dark:active {
+    box-shadow: 0 0 0 0.25rem rgba(15, 16, 32, 0.25);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.retina-btn-icon {
+    background-color: transparent;
+    padding: 0;
+    border: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.retina-btn-icon:active {
+    background-color: rgba(15, 16, 32, 0.1);
+    border-radius: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.retina-bg-dark {
+    background-color: #0F1020;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.retina-text-dark {
+    color: #0F1020;
+}
+
+.retina-text-blue {
+    color: #0197F6;
+}
+
+.retina-text-dark-blue {
+    color: #3454D1;
+}
+
+.retina-text-light {
+    color: #EBF5EE;
+}
+
+.retina-toast {
+    position: absolute;
+    bottom: 2em;
+    left: 2em;
 }
