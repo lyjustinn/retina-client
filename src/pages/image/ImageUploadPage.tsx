@@ -1,6 +1,6 @@
 import React from 'react';
-import ImageUpload from '../../../components/image/imageUpload/ImageUpload';
-import Layout from '../../../components/layout/Layout';
+import ImageUpload from '../../components/image/ImageUpload';
+import Layout from '../../components/layout/Layout';
 
 interface ImageUploadPageProps {
 

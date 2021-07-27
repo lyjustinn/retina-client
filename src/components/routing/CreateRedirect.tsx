@@ -2,16 +2,19 @@ import React from 'react';
 import { Redirect } from 'react-router';
 
 interface CreateRedirectProps {
-    auth : {
+    authObj : {
         auth : boolean | undefined
         id : number
     },
-    Component : React.FC<any>
+    Component : React.FC<any>,
+    noAuth : boolean
 }
 
-const CreateRedirect: React.FC<CreateRedirectProps> = ({auth,Component}) => {
-    if (auth.auth === undefined) return <> </>
-    else if (auth.auth === true) return <Redirect to={`/user/${auth.id}`}/>
+const CreateRedirect: React.FC<CreateRedirectProps> = ({authObj, Component, noAuth}) => {
+    if (authObj.auth === undefined) return <> </>
+    else if (authObj.auth === true && noAuth) return <Redirect to={`/user/${authObj.id}`}/>
+    else if (authObj.auth === true && !noAuth) return <Component />
+    else if (authObj.auth === false && !noAuth) return <Redirect to={`/login`}/>
     else return <Component />
 }
 export default CreateRedirect;

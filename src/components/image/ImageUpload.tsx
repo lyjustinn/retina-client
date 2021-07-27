@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { NewImageText } from '../../../types/imageTypes';
-import { createImage } from '../../../util/image/imageService'; 
+import { NewImageText } from '../../types/imageTypes';
+import { createImage } from '../../util/image/imageService'; 
 
 interface ImageUploadProps {
 
