@@ -14,8 +14,7 @@ interface ImageGridProps {
 const ImageGrid: React.FC<ImageGridProps> = ({GridItem, num, images}) => {
 
     const getColumnStyles = () => ({
-        width : `calc(${1/num * 100}% - 4px)`,
-        marginTop: "4px" 
+        width : `calc(${1/num * 100}% - 4px)`
     });
 
     const renderColumns = () => {
