@@ -1,3 +1,4 @@
+import { TagSimplified } from "./tagTypes";
 import { User } from "./userTypes";
 
 export interface NewImageText {
@@ -11,6 +12,7 @@ interface ImageInterface {
     description: string | null,
     owner: User,
     resourceName: string
+    tags : Array<TagSimplified>
 }
 
 export type Image = ImageInterface;

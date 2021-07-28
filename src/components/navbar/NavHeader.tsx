@@ -31,7 +31,7 @@ const NavHeader: React.FC = () => {
     }
 
     return (
-        <Navbar className="bg-dark px-4">
+        <Navbar className="retina-bg-dark px-4 ">
             <Navbar.Brand className="text-light" href="/">
                     Retina
             </Navbar.Brand>
