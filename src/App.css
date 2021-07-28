@@ -41,9 +41,16 @@
 .retina-text-light {
     color: #EBF5EE;
 }
+.retina-text-light-gray {
+    color: #7C90A0;
+}
 
 .retina-toast {
     position: absolute;
     bottom: 2em;
     left: 2em;
+}
+
+.retina-text-title {
+    text-transform: capitalize;
 }

@@ -1,0 +1,21 @@
+.image-grid-item {
+    margin-top: 8px;
+}
+
+.image-grid-item-bar {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(15, 16, 32, 0.75), rgba(0,0,0,0) 25%);
+    opacity: 0;
+    
+}
+
+.image-grid-item-bar p, .image-grid-item-bar h6 {
+    text-transform: capitalize;
+}
+
+.image-grid-item-bar:hover {
+    opacity: 1;
+}

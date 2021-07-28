@@ -10,7 +10,7 @@ interface ImageInterface {
     name: string,
     description: string | null,
     owner: User,
-    resourceLink: string
+    resourceName: string
 }
 
 export type Image = ImageInterface;
