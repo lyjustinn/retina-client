@@ -5,7 +5,7 @@ import LoginPage from '../../pages/login/LoginPage';
 import ImageUploadPage from '../../pages/image/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
 import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
-import SearchPage from '../../pages/image/search/SearchPage';
+import SearchPage from '../../pages/image/SearchPage';
 import ExplorePage from '../../pages/tag/explore/ExplorePage';
 import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
 import UserProfilePage from '../../pages/user/userProfile/UserProfilePage';

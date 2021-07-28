@@ -12,7 +12,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children, param}) => {
     return (
-        <div className="d-flex flex-column justify-content-center h-100">
+        <div className="d-flex flex-column h-100">
             <NavHeader/>
             <div className="flex-grow-1">
                 {children}

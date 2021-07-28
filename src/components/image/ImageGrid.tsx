@@ -3,7 +3,9 @@ import { Image } from '../../types/imageTypes';
 
 interface ImageGridProps {
     GridItem : React.FC<{
-        src : string
+        src : string,
+        id : string,
+        image : Image
     }>,
     num : number,
     images : Array<Image>
@@ -12,12 +14,8 @@ interface ImageGridProps {
 const ImageGrid: React.FC<ImageGridProps> = ({GridItem, num, images}) => {
 
     const getColumnStyles = () => ({
-        maxWidth : `${1/num * 100}%` 
-    });
-
-    const getItemStyles = () => ({
-        maxHeight : `${1/num * 100}%`,
-        maxWidth : `${1/num * 100}%` 
+        width : `calc(${1/num * 100}% - 4px)`,
+        marginTop: "4px" 
     });
 
     const renderColumns = () => {
@@ -29,7 +27,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({GridItem, num, images}) => {
 
         images.forEach((image, i ) => {
             columns[Math.floor(i%num)].push(
-                <div key={image.id}><GridItem src={`${cdn}/${image.resourceName}`}/></div>
+                <GridItem key={image.id} id={image.id+""} src={`${cdn}/${image.resourceName}`} image={image}/>
             )
         })
 
@@ -46,7 +44,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({GridItem, num, images}) => {
         return columnElements
     }
 
-    return <div className="d-flex flex-wrap position-relative">
+    return <div className="d-flex flex-wrap position-relative justify-content-between">
         {renderColumns()}
     </div>;
 }

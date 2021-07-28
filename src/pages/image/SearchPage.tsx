@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '../../../components/layout/Layout';
+import Layout from '../../components/layout/Layout';
 import { match, RouteComponentProps } from 'react-router';
-import SearchResults from '../../../components/image/SearchResults';
+import SearchResults from '../../components/image/SearchResults';
 
 interface MatchParams {
     query: string

@@ -2,11 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Image } from '../../types/imageTypes';
 import { searchImages } from '../../util/image/imageService';
 import Container from 'react-bootstrap/Container';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageGrid from './ImageGrid';
 import ImageGridItem from './ImageGridItem';
-
 interface SearchResultsProps {
     query : string
 }
@@ -32,8 +29,8 @@ const SearchResults: React.FC<SearchResultsProps> = ({query}) => {
                 <p className="retina-text-light-gray m-0">{images.length} Images</p>
             </div>
         </div>
-        <div>
-            <ImageGrid GridItem={ImageGridItem} num={3} images={images}/>
+        <div >
+            <ImageGrid GridItem={ImageGridItem} num={4} images={images}/>
         </div>
     </Container>);
 }
