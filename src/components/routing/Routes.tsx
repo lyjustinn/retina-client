@@ -7,7 +7,7 @@ import SignupPage from '../../pages/signup/SignupPage';
 import ImageDetailsPage from '../../pages/image/ImageDetailsPage';
 import SearchPage from '../../pages/image/SearchPage';
 import ExplorePage from '../../pages/tag/explore/ExplorePage';
-import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
+import TagDetailsPage from '../../pages/tag/TagDetailsPage';
 import UserProfilePage from '../../pages/user/userProfile/UserProfilePage';
 import UserEditPage from '../../pages/user/userEdit/UserEditPage';
 import ImageEditPage from '../../pages/image/imageEdit/ImageEditPage';
