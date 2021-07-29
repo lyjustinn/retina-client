@@ -1,0 +1,8 @@
+.tag-container .MuiChip-label {
+    text-transform: capitalize;
+}
+
+.tag-container .MuiChip-colorPrimary {
+    background-color: #3454D1;
+    color: #EBF5EE;
+}

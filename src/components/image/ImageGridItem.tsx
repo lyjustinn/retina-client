@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '../../types/imageTypes';
-import './ImageGridStyles.css'
+import '../../styles/ImageGridStyles.css'
 
 interface ImageGridItemProps {
     src : string,

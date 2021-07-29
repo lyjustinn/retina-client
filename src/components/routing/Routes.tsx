@@ -4,7 +4,7 @@ import LandingPage from '../../pages/landing/LandingPage';
 import LoginPage from '../../pages/login/LoginPage';
 import ImageUploadPage from '../../pages/image/ImageUploadPage';
 import SignupPage from '../../pages/signup/SignupPage';
-import ImageDetailsPage from '../../pages/image/imageDetails/ImageDetailsPage';
+import ImageDetailsPage from '../../pages/image/ImageDetailsPage';
 import SearchPage from '../../pages/image/SearchPage';
 import ExplorePage from '../../pages/tag/explore/ExplorePage';
 import TagDetailsPage from '../../pages/tag/tagDetails/TagDetailsPage';
