@@ -6,7 +6,7 @@ export const getRandomTags = async () : Promise<Array<Tag>> => {
 
     if (!url) throw new Error("invalid API url");
 
-    const response = await fetch(url + "/api/tag/sample/10");
+    const response = await fetch(url + "/api/tag/sample/9");
 
     if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 

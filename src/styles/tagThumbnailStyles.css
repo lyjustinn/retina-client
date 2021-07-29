@@ -1,10 +1,14 @@
 .tag-thumbnail {
-    width: 400px;
+    width: max-content;
+}
+
+.tag-thumbnail:hover {
+    background-color: rgba(124, 144, 160, 0.2);
+    border-radius: 8px;
 }
 
 .tag-thumbnail .main-thumbnail{
     border-radius: 8px;
-    border: 1px solid red;
     width: 400px;
     height: 200px;
     object-fit: cover;
@@ -16,10 +20,9 @@
     height: 80px;
 }
 .tag-thumbnail .secondary-thumbnail {
-    width: calc(133px - 10px);
+    width: 123px;
     object-fit: cover;
     margin-right: 15px;
-    border: 1px solid red;
 }
 
 .tag-thumbnail .secondary-thumbnail:first-child {
@@ -31,4 +34,8 @@
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     margin: 0;
+}
+
+.tag-thumbnail .tag-link {
+    text-decoration: none;
 }
