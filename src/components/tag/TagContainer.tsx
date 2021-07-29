@@ -15,7 +15,7 @@ const TagContainer: React.FC<TagContainerProps> = ({tags, className}) => {
 
     return <div className={className + " d-flex flex-wrap tag-container"}>
         {tags.map( tag => 
-        <Link to={"/tag/"+tag.id}>
+        <Link to={"/tag/"+tag.id} key={tag.id+"-"+tag.name}>
             <Chip 
             clickable
             label={tag.name}
