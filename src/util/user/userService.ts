@@ -121,4 +121,25 @@ export const getUserProfile = async (id : number) => {
     if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
     return response.json();
-} 
+}
+
+export const getCurrentUserProfile = async () => {
+    const jwt : string = cookies.get("authToken");
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    const fetchOptions = {
+        method: 'get',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + jwt
+        }
+    }
+
+    if (!url || !jwt) throw new Error("invalid API url");
+
+    const response = await fetch(url + "/api/user/current/images", fetchOptions);
+
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return response.json();
+}
