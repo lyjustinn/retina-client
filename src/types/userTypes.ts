@@ -1,6 +1,7 @@
+import { Image } from "./imageTypes";
+
 interface UserInterface {
     id: number
-    username: string,
     name: string
     bio: string | null
 }
@@ -22,4 +23,11 @@ export interface UpdateRequest {
     name : string,
     bio: string,
     password : string
+}
+
+export interface UserProfile {
+    id : number
+    name : string,
+    bio : string,
+    images : Array<Image>
 }

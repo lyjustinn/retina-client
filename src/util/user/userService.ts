@@ -110,3 +110,15 @@ export const updateUser = async (id : number, data : UpdateRequest) : Promise<bo
     const response = await fetch(url + "/api/user/" + id, fetchOptions);
     return response.ok;
 }
+
+export const getUserProfile = async (id : number) => {
+    const url: string = process.env.REACT_APP_API_URL ?? "";
+
+    if (!url) throw new Error("invalid API url");
+
+    const response = await fetch(url + "/api/user/images/" + id);
+
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return response.json();
+} 
