@@ -13,13 +13,13 @@ const ProfileDetails: React.FC<ProfileDetailsProps> = ({id}) => {
     const [profile, setProfile] = useState<UserProfile | null>(null);
 
     const renderGrid = () => {
-        // if (profile && profile.images.length > 0) 
-        // return (
-        //     <>
-        //         <h5 className="retina-text-dark my-4">Photos posted by {profile.name}</h5>
-        //         <ImageGrid GridItem={ImageGridItem} images={profile.images} num={4}/>
-        //     </>
-        // );
+        if (profile && profile.images.length > 0) 
+        return (
+            <>
+                <h5 className="retina-text-dark my-4">Photos posted by {profile.name}</h5>
+                <ImageGrid GridItem={ImageGridItem} images={profile.images} num={4}/>
+            </>
+        );
 
         return (
             <>
