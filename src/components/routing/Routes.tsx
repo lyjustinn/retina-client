@@ -9,7 +9,7 @@ import SearchPage from '../../pages/image/SearchPage';
 import ExplorePage from '../../pages/tag/ExplorePage';
 import TagDetailsPage from '../../pages/tag/TagDetailsPage';
 import UserProfilePage from '../../pages/user/UserProfilePage';
-import UserEditPage from '../../pages/user/userEdit/UserEditPage';
+import UserEditPage from '../../pages/user/UserEditPage';
 import ImageEditPage from '../../pages/image/imageEdit/ImageEditPage';
 import NoAuthRoute from './NoAuthRoute';
 import AuthRoute from './AuthRoute';
@@ -29,7 +29,7 @@ const Routes: React.FC = () => {
                 <NoAuthRoute exact path="/login" component={LoginPage}/>
 
                 {/* Routes that require auth, redirect to 404 if invalid */}
-                <Route exact path="/edit/user" component={UserEditPage}/>
+                <AuthRoute exact path="/edit/user" component={UserEditPage} authorized={getCurrentUser} />
                 <AuthRoute exact path="/upload/image" component={ImageUploadPage} authorized={getCurrentUser}/>
                 <Route exact path="/edit/image/:id" component={ImageEditPage}/>
                 <Route path="/" component={() => <div>404</div>}/>
