@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { match, RouteComponentProps } from 'react-router';
+import { match, Redirect, RouteComponentProps } from 'react-router';
 import Layout from '../../components/layout/Layout';
 import ProfileDetails from '../../components/user/ProfileDetails';
 import { User } from '../../types/userTypes';
@@ -16,9 +16,9 @@ interface UserProfilePageProps extends RouteComponentProps<MatchParams> {
 const UserProfilePage: React.FC<UserProfilePageProps> = ({match}) => {
 
     return <Layout param="" user={null}>
-        <>
-        <ProfileDetails id={+match.params.id}/>
-        </>
+        {
+            isNaN(+match.params.id) ? <Redirect to="/404"/> : <ProfileDetails id={+match.params.id}/> 
+        }
     </Layout>;
 }
 export default UserProfilePage;
