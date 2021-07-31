@@ -1,10 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout/Layout';
-import { getUser } from '../../util/user/userService';
 
-const LandingPage: React.FC = ({}) => {
-
-    // const user = getUser();
+const LandingPage: React.FC = () => {
 
     return (
         <Layout param="temp" user={null}>

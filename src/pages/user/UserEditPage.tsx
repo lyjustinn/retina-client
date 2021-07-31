@@ -8,11 +8,7 @@ import ImageGrid from '../../components/image/ImageGrid';
 import ImageGridItem from '../../components/image/ImageGridItem';
 import { Image } from '../../types/imageTypes';
 
-interface UserEditPageProps {
-
-}
-
-const UserEditPage: React.FC<UserEditPageProps> = ({}) => {
+const UserEditPage: React.FC = () => {
     const [user, setUser] = useState<UserProfile | null>(null);
 
     useEffect(() => {
