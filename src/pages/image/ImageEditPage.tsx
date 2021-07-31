@@ -34,7 +34,7 @@ const ImageEditPage: React.FC<ImageEditPageProps> = ({match}) => {
         }  
 
         check();
-    },[currentUser, match.params.id])
+    },[currentUser, match.params.id, history])
 
     return <Layout param="" user={null}>
         { image ? 

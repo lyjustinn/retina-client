@@ -4,6 +4,7 @@ import { getUserProfile } from '../../util/user/userService';
 import Container from 'react-bootstrap/Container';
 import ImageGrid from '../image/ImageGrid';
 import ImageGridItem from '../image/ImageGridItem';
+import { useHistory } from 'react-router';
 
 interface ProfileDetailsProps {
     id : number
@@ -11,6 +12,7 @@ interface ProfileDetailsProps {
 
 const ProfileDetails: React.FC<ProfileDetailsProps> = ({id}) => {
     const [profile, setProfile] = useState<UserProfile | null>(null);
+    const history = useHistory();
 
     const renderGrid = () => {
         if (profile && profile.images.length > 0) 
@@ -31,8 +33,8 @@ const ProfileDetails: React.FC<ProfileDetailsProps> = ({id}) => {
     useEffect(()=> {
         getUserProfile(id)
         .then( res => setProfile(res))
-        .catch(e => console.error(e));
-    },[id])
+        .catch(e => history.push("/404"));
+    },[id, history])
 
     return <Container className="p-4">
         {
