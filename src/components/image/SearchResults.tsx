@@ -10,11 +10,19 @@ interface SearchResultsProps {
 
 const SearchResults: React.FC<SearchResultsProps> = ({query}) => {
     const [images, setImages] = useState<Array<Image>>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        setLoading(true)
+
         searchImages(query)
-            .then( res => setImages(res))
-            .catch( e => console.error(e))
+        .then( res => {
+            setImages(res);
+            setLoading(false);
+        })
+        .catch( e => {
+            setLoading(false);
+        });
     },[query])
 
     return (<Container className="p-4 retina-text-dark">
@@ -30,7 +38,9 @@ const SearchResults: React.FC<SearchResultsProps> = ({query}) => {
             </div>
         </div>
         <div >
-            <ImageGrid GridItem={ImageGridItem} num={4} images={images}/>
+            { loading ? <div>Loading</div> :
+                <ImageGrid GridItem={ImageGridItem} num={4} images={images}/>
+            }
         </div>
     </Container>);
 }
