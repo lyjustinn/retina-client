@@ -5,12 +5,9 @@ import Toast from 'react-bootstrap/Toast';
 import { AuthRequest } from '../../types/userTypes';
 import { login } from '../../util/user/userService';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
-interface LoginProps {
-
-}
-
-const Login: React.FC<LoginProps> = ({}) => {
+const Login: React.FC = () => {
     const [input, setInput] = useState<{
         [key: string]: string
     }>({
@@ -34,9 +31,6 @@ const Login: React.FC<LoginProps> = ({}) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         e.stopPropagation();
-
-        console.log(e.target);
-
         setValidate(true);
 
         if (!input.username || !input.password) return;
@@ -45,8 +39,6 @@ const Login: React.FC<LoginProps> = ({}) => {
             username: input.username,
             password: input.password
         }
-
-        console.log("logging in");
 
         login(authRequest)
         .then( res => {
@@ -71,6 +63,7 @@ const Login: React.FC<LoginProps> = ({}) => {
                 <button className="w-100 retina-btn-dark my-2" type="submit">
                     Submit
                 </button>
+                <p className="text-center">Don't have an account? <Link className="retina-text-blue text-decoration-none" to="/login">Sign up Here</Link></p>
             </Form>
             {
                 toast ?

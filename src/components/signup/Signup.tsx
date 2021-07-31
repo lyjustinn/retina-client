@@ -5,12 +5,9 @@ import Toast from 'react-bootstrap/Toast';
 import { NewUser } from '../../types/userTypes';
 import { createUser } from '../../util/user/userService';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
-interface SignupProps {
-
-}
-
-const Signup: React.FC<SignupProps> = ({}) => {
+const Signup: React.FC = () => {
     const [input, setInput] = useState<{
         [key: string]: string
     }>({
@@ -37,9 +34,7 @@ const Signup: React.FC<SignupProps> = ({}) => {
         e.preventDefault();
         e.stopPropagation();
 
-        setValidate(true)
-
-        console.log(e.target);
+        setValidate(true);
 
         if (!input.username || !input.firstName || !input.lastName || !input.password) return;
 
@@ -49,8 +44,6 @@ const Signup: React.FC<SignupProps> = ({}) => {
             lastName: input.lastName,
             password: input.password
         }
-
-        console.log("Creating new user");
 
         createUser(newUser)
         .then( res => {
@@ -83,6 +76,7 @@ const Signup: React.FC<SignupProps> = ({}) => {
                     <Form.Control.Feedback type="invalid">Please Enter Your Password</Form.Control.Feedback>
                 </Form.Group>
                 <button className="w-100 my-2 retina-btn-dark">Sign Up</button>
+                <p className="text-center">Already have an account? <Link className="retina-text-blue text-decoration-none" to="/login">Login Here</Link></p>
             </Form>
             {
                 toast ?
