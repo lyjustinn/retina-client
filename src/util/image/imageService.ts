@@ -85,8 +85,11 @@ export const deleteImage = async (id : number) => {
 
     const url: string = process.env.REACT_APP_API_URL ?? "";
 
-    if (!url) return false;
+    if (!url) throw new Error("invalid API url");
 
     const response = await fetch(url + "/api/image/" + id, fetchOptions);
-    return response.ok;
+
+    if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
+
+    return true;
 }
