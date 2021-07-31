@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Route } from 'react-router';
 import { getCurrentUser } from '../../util/user/userService';
-import CreateRedirect from './CreateRedirect';
+import CreateRedirect from '../../util/createRedirect';
 
 interface NoAuthRouteProps {
     component : React.FC<any>,
@@ -18,10 +18,6 @@ const NoAuthRoute: React.FC<NoAuthRouteProps> = ({component, path, exact}) => {
         id : 0
     })
 
-    const CustomRedirect : React.FC = () => {
-        return <CreateRedirect noAuth={true} authObj={authObj} Component={component}/>
-    }
-
     useEffect(() => {
         getCurrentUser()
         .then( res => setAuth({
@@ -34,6 +30,6 @@ const NoAuthRoute: React.FC<NoAuthRouteProps> = ({component, path, exact}) => {
         }));
     },[])
 
-    return <Route exact={exact} path={path} component={CustomRedirect}/>;
+    return <Route exact={exact} path={path} component={CreateRedirect(authObj, component, true)}/>;
 }
 export default NoAuthRoute;

@@ -1,9 +1,11 @@
 .retina-btn-dark {
-    padding: 0.5em;
+    padding: .375rem .75rem;
+    font-size: 1rem;
     background-color: #0F1020;
     color : #EBF5EE;    
-    border: none;
+    border: 1px solid transparent;
     border-radius: 0.25rem;
+    line-height: 1.5;
     /* 3454D1, 0197F6 */
 }
 
