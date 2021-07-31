@@ -7,7 +7,6 @@ import Popover from '@material-ui/core/Popover';
 import { useHistory } from 'react-router';
 import { useContext } from 'react';
 import { CurrentUserContext } from '../layout/CurrentUser';
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const NavHeader: React.FC = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useReducer } from 'react';
 import { User } from '../../types/userTypes';
 import { getCurrentUser } from '../../util/user/userService';
 

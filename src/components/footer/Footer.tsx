@@ -1,11 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-interface FooterProps {
-
-}
-
-const Footer: React.FC<FooterProps> = ({}) => {
+const Footer: React.FC = () => {
     return (
         <footer className="retina-bg-dark py-3 px-4 retina-text-light d-flex justify-content-between">
             <span>Built by <a className="retina-text-blue text-decoration-none" href="https://github.com/lyjustinn">Justin Ly</a></span>

@@ -5,11 +5,7 @@ import { getRandomTags } from '../../util/tag/tagService';
 import Container from 'react-bootstrap/Container';
 import TagThumbnail from '../../components/tag/TagThumbnail';
 
-interface ExplorePageProps {
-
-}
-
-const ExplorePage: React.FC<ExplorePageProps> = ({}) => {
+const ExplorePage: React.FC = () => {
     const [tags, setTags] = useState<Array<Tag>>([]);
 
     useEffect(()=> {

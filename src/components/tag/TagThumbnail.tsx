@@ -31,20 +31,18 @@ const TagThumbnail: React.FC<TagThumbnailProps> = ({tag}) => {
     }
 
     useEffect(() => {
-        let temp = getRand();
-        console.log(tag);
 
-        setImages(temp);
+        setImages(getRand());
 
     },[tag.id, tag.images.length])
 
     return (<div className="tag-thumbnail my-4 p-2">
         <Link to={"/tag/"+tag.id} className="tag-link">
-            { images.length > 0 ? <img className="main-thumbnail" alt={`image for id :${images[0].id}`} src={`${process.env.REACT_APP_CDN_URL ?? ""}/${images[0].resourceName}`}></img> 
+            { images.length > 0 ? <img className="main-thumbnail" alt={`id :${images[0].id}`} src={`${process.env.REACT_APP_CDN_URL ?? ""}/${images[0].resourceName}`}></img> 
             : <div>loading</div>}
             <div className="secondary-row d-flex justify-content-start">
                 { images.slice(1).map( (image, i) => {
-                    return <img key={"tag-"+tag.name+"-"+image.id} className="secondary-thumbnail" src={`${process.env.REACT_APP_CDN_URL ?? ""}/${image.resourceName}`} alt={`image for id :${image.id}`}></img>
+                    return <img key={"tag-"+tag.name+"-"+image.id} className="secondary-thumbnail" src={`${process.env.REACT_APP_CDN_URL ?? ""}/${image.resourceName}`} alt={`id :${image.id}`}></img>
                 })}
             </div>
             <div className="d-flex justify-content-between third-row px-3 pt-2 retina-text-dark">

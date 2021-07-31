@@ -15,14 +15,14 @@ const AuthRoute: React.FC<AuthRouteProps> = ({component, path, exact, authorized
     useEffect(() => {
         async function onMount () {
             try {
-                let res = await authorized();
+                await authorized();
                 setAuth(true);
             } catch (e) {
                 setAuth(false);
             }
         }
         onMount();
-    },[])
+    },[authorized])
 
     return (<Route exact={exact} path={path} component={CreateRedirect({ auth, id : -1 }, component, false)}/>);
 }

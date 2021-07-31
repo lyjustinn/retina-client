@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { match, Redirect, RouteComponentProps } from 'react-router';
 import Layout from '../../components/layout/Layout';
 import ProfileDetails from '../../components/user/ProfileDetails';
-import { User } from '../../types/userTypes';
-import { getUser } from '../../util/user/userService';
 
 interface MatchParams {
     id: string

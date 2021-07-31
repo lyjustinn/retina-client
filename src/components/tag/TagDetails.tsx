@@ -16,7 +16,7 @@ const TagDetails: React.FC<TagDetailsProps> = ({id}) => {
         getTag(id)
         .then( res => setTag(res))
         .catch( e => console.error(e));
-    },[])
+    },[id])
 
     return (
     <Container className="p-4 retina-text-dark">

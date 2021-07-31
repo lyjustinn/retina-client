@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form';
 import { UpdateRequest, User } from '../../types/userTypes';
 import { updateUser } from '../../util/user/userService';
 import Toast from 'react-bootstrap/Toast';
-import { useHistory } from 'react-router';
 
 interface UserEditFormProps {
     user : User
@@ -17,7 +16,6 @@ const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
     });
     const [validate, setValidate] = useState(false);
     const [toast, setToast] = useState({show : false, msg : ""});
-    const history = useHistory();
     
     const handleChange = ( e : React.ChangeEvent<HTMLInputElement>) => {
         const {value, name} = e.target;

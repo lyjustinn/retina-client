@@ -13,7 +13,6 @@ import UserEditPage from '../../pages/user/UserEditPage';
 import ImageEditPage from '../../pages/image/ImageEditPage';
 import NoAuthRoute from './NoAuthRoute';
 import AuthRoute from './AuthRoute';
-import { getCurrentUser } from '../../util/user/userService';
 import CurrentUser from '../layout/CurrentUser';
 import { CurrentUserContext } from '../layout/CurrentUser';
 
