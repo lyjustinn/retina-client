@@ -13,6 +13,21 @@
     box-shadow: 0 0 0 0.25rem rgba(15, 16, 32, 0.25);
 }
 
+.retina-btn-blue {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    background-color: #0197F6;
+    color : #EBF5EE;    
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    line-height: 1.5;
+    /* 3454D1, 0197F6 */
+}
+
+.retina-btn-blue:active {
+    box-shadow: 0 0 0 0.25rem rgb(1, 151, 246, 0.25);
+}
+
 .retina-btn-icon {
     background-color: transparent;
     padding: 0;
@@ -34,6 +49,10 @@
 
 .retina-text-blue {
     color: #0197F6;
+}
+
+.retina-text-blue:hover {
+    color: #3454D1;
 }
 
 .retina-text-dark-blue {
@@ -69,4 +88,26 @@
 
 .retina-text-title {
     text-transform: capitalize;
+}
+
+.retina-dropdown-item {
+    text-decoration: none;
+}
+
+.retina-dropdown-item:hover {
+    background-color: rgba(124, 144, 160, 0.2);
+}
+
+.dropdown-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 10em;
+    padding: 0 1em 0 1em;
+}
+
+.hero {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
