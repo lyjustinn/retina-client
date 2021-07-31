@@ -11,9 +11,9 @@ interface UserEditFormProps {
 
 const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
     const [input, setInput] = useState<{ [key: string] : string}>({
-        firstName: "",
-        lastName: "",
-        bio: ""
+        firstName: user.firstName,
+        lastName: user.lastName,
+        bio: user.bio ?? ""
     });
     const [validate, setValidate] = useState(false);
     const [toast, setToast] = useState({show : false, msg : ""});
@@ -58,11 +58,11 @@ const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
                 <div className="w-50 me-2">
                     <Form.Group className="mt-2 w-100">
                         <Form.Label className="retina-text-title">Enter a new first name</Form.Label>
-                        <Form.Control value={input.firstName} onChange={handleChange} name="firstName" type="text" placeholder={user.firstName}/>
+                        <Form.Control required value={input.firstName} onChange={handleChange} name="firstName" type="text" placeholder={user.firstName}/>
                     </Form.Group>
                     <Form.Group className="mt-2 w-100">
                         <Form.Label className="retina-text-title">Enter a new last name</Form.Label>
-                        <Form.Control value={input.lastName} onChange={handleChange} name="lastName" type="text" placeholder={user.lastName}/>
+                        <Form.Control required value={input.lastName} onChange={handleChange} name="lastName" type="text" placeholder={user.lastName}/>
                     </Form.Group>
                     <button className="retina-btn-dark w-100 mt-2">Save</button>
                 </div>

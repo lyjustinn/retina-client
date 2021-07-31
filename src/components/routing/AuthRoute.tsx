@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router';
-import CreateRedirect from './CreateRedirect';
+import CreateRedirect from '../../util/createRedirect';
 
 interface AuthRouteProps {
     component : React.FC<any>
@@ -11,8 +11,6 @@ interface AuthRouteProps {
 
 const AuthRoute: React.FC<AuthRouteProps> = ({component, path, exact, authorized}) => {
     const [auth, setAuth] = useState<boolean | undefined>(undefined);
-
-    const CustomRedirect = () => <CreateRedirect noAuth={false} authObj={{auth, id : -1}} Component={component}/> 
 
     useEffect(() => {
         async function onMount () {
@@ -26,6 +24,6 @@ const AuthRoute: React.FC<AuthRouteProps> = ({component, path, exact, authorized
         onMount();
     },[])
 
-    return (<Route exact={exact} path={path} component={CustomRedirect}/>);
+    return (<Route exact={exact} path={path} component={CreateRedirect({ auth, id : -1 }, component, false)}/>);
 }
 export default AuthRoute;

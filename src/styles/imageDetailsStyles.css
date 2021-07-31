@@ -1,3 +1,7 @@
 .image-detail-img {
     height: 60vh;
 }
+
+.image-detail-img-small {
+    height: 50vh;
+}
