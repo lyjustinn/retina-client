@@ -15,14 +15,15 @@ import NoAuthRoute from './NoAuthRoute';
 import AuthRoute from './AuthRoute';
 import CurrentUser from '../layout/CurrentUser';
 import { CurrentUserContext } from '../layout/CurrentUser';
+import NotFoundPage from '../../pages/Error/NotFoundPage';
 
 const Routes: React.FC = () => {
 
     const { updateUser } = useContext(CurrentUserContext);
 
     return (
-        <CurrentUser>
-            <BrowserRouter>
+        <BrowserRouter>
+            <CurrentUser>
                 <Switch>
                     <Route exact path="/" component={LandingPage}/>
                     <Route exact path="/explore" component={ExplorePage}/>
@@ -38,10 +39,11 @@ const Routes: React.FC = () => {
                     <AuthRoute exact path="/edit/user" component={UserEditPage} authorized={updateUser} />
                     <AuthRoute exact path="/upload/image" component={ImageUploadPage} authorized={updateUser}/>
                     <AuthRoute exact path="/edit/image/:id" component={ImageEditPage} authorized={updateUser}/>
-                    <Route path="/" component={() => <div>404</div>}/>
+                    <Route path="/" component={NotFoundPage}/>
                 </Switch>
-            </BrowserRouter>
-        </CurrentUser>
+            </CurrentUser>
+        </BrowserRouter>
+        
     );
 }
 

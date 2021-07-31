@@ -56,7 +56,7 @@ export const login = async(authRequest: AuthRequest) => {
     return true;
 }
 
-export const getCurrentUser = async () => {
+export const getCurrentUser = async () : Promise<User> => {
     const jwt : string = cookies.get("authToken");
     const url: string = process.env.REACT_APP_API_URL ?? "";
 

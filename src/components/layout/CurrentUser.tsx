@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
+import { useLocation } from 'react-router';
 import { User } from '../../types/userTypes';
 import { getCurrentUser } from '../../util/user/userService';
 
@@ -22,12 +23,12 @@ interface ContextValue {
 const CurrentUser: React.FC<CurrentUserProps> = ({children}) => {
 
     const [userState, dispatch] = useReducer(reducer, initialState);
+    const location = useLocation();
 
     const updateUser = async () : Promise<boolean> => {
         try {
             let res = await getCurrentUser();
-            if (!res.ok) dispatch(null);
-            let user = await res.json();
+            let user = res;
             dispatch(user);
             return true;
         } catch (e) {
@@ -36,6 +37,20 @@ const CurrentUser: React.FC<CurrentUserProps> = ({children}) => {
         }
     }
 
+    useEffect(()=> {
+        async function check() {
+            try {
+                let res = await getCurrentUser();
+                let user = res;
+                dispatch(user);
+            } catch (e) {
+                dispatch(null);
+            }
+        }
+
+        check();
+    },[location.pathname])
+
     return (
         <CurrentUserContext.Provider value={{ currentUser: userState.currentUser, updateUser}}>
             { children }
@@ -43,6 +58,6 @@ const CurrentUser: React.FC<CurrentUserProps> = ({children}) => {
     );
 }
 
-export const CurrentUserContext = React.createContext<ContextValue>({ currentUser: null, updateUser : getCurrentUser});
+export const CurrentUserContext = React.createContext<ContextValue>({ currentUser: null, updateUser : () => Promise.resolve(true)});
 
 export default CurrentUser;
