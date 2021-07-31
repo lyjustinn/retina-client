@@ -104,7 +104,7 @@ const ImageUpload: React.FC = () => {
                         </button>
                     </Toast.Header>
                     <Toast.Body>
-                        
+                        {toast.msg}
                     </Toast.Body>
                 </Toast> : <></>
             }

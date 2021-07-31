@@ -45,7 +45,8 @@ const Signup: React.FC<SignupProps> = ({}) => {
 
         const newUser : NewUser = {
             username: input.username,
-            name: input.firstName + " " + input.lastName,
+            firstName: input.firstName,
+            lastName: input.lastName,
             password: input.password
         }
 

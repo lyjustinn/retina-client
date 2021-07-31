@@ -2,6 +2,8 @@ import { Image } from "./imageTypes";
 
 interface UserInterface {
     id: number
+    firstName : string
+    lastName : string
     name: string
     bio: string | null
 }
@@ -9,8 +11,9 @@ interface UserInterface {
 export type User = UserInterface;
 
 export interface NewUser {
-    username: string,
-    name: string,
+    username: string
+    firstName : string
+    lastName : string
     password: string
 }
 
@@ -20,14 +23,17 @@ export interface AuthRequest {
 }
 
 export interface UpdateRequest {
-    name : string,
-    bio: string,
+    firstName : string
+    lastName : string
+    bio: string
     password : string
 }
 
 export interface UserProfile {
     id : number
-    name : string,
-    bio : string,
+    firstName : string
+    lastName : string
+    name : string
+    bio : string
     images : Array<Image>
 }
