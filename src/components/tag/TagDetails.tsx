@@ -4,6 +4,7 @@ import { getTag } from '../../util/tag/tagService';
 import Container from 'react-bootstrap/Container';
 import ImageGrid from '../image/ImageGrid';
 import ImageGridItem from '../image/ImageGridItem';
+import { useHistory } from 'react-router';
 
 interface TagDetailsProps {
     id : number
@@ -11,12 +12,13 @@ interface TagDetailsProps {
 
 const TagDetails: React.FC<TagDetailsProps> = ({id}) => {
     const [tag, setTag] = useState<Tag | null>(null);
+    const history = useHistory();
 
     useEffect(() => {
         getTag(id)
         .then( res => setTag(res))
-        .catch( e => console.error(e));
-    },[id])
+        .catch( e => history.push("/404"));
+    },[id, history])
 
     return (
     <Container className="p-4 retina-text-dark">
