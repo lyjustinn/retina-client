@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import { UpdateRequest, User } from '../../types/userTypes';
 import { updateUser } from '../../util/user/userService';
 import Toast from 'react-bootstrap/Toast';
+import { useHistory } from 'react-router';
 
 interface UserEditFormProps {
     user : User
@@ -15,7 +16,8 @@ const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
         bio: user.bio ?? ""
     });
     const [validate, setValidate] = useState(false);
-    const [toast, setToast] = useState({show : false, msg : ""});
+    const [toast, setToast] = useState({show : false, msg : "", redirect: false});
+    const history = useHistory();
     
     const handleChange = ( e : React.ChangeEvent<HTMLInputElement>) => {
         const {value, name} = e.target;
@@ -40,13 +42,13 @@ const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
         }
 
         updateUser(+user.id, updateRequest)
-        .then(res => setToast({show : true, msg : "Profile details updated!"}))
-        .catch(e => setToast({show : true, msg : "Edit failed, please try again!"}))
+        .then(res => setToast({show : true, msg : "Profile details updated! Redirecting to your profile!", redirect: true}))
+        .catch(e => setToast({show : true, msg : "Edit failed, please try again!", redirect: false}))
     }
 
     const hideToast = () => {
-        setToast({ msg : "", show: false})
-        // history.push("/explore");
+        setToast({ msg : "", show: false, redirect: false});
+        if (toast.redirect) history.push("/user/"+user.id);
     }
 
     return (

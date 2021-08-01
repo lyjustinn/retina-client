@@ -3,6 +3,7 @@ import { Image } from '../../types/imageTypes';
 import { Tag } from '../../types/tagTypes';
 import '../../styles/tagThumbnailStyles.css';
 import { Link } from 'react-router-dom';
+import { useCallback } from 'react';
 
 interface TagThumbnailProps {
     tag : Tag
@@ -11,8 +12,7 @@ interface TagThumbnailProps {
 const TagThumbnail: React.FC<TagThumbnailProps> = ({tag}) => {
     const [images, setImages] = useState<Array<Image>>([]);
 
-
-    const getRand = () : Array<Image> => {
+    const memoizedRand = useCallback(() => {
         if (tag.images.length < 4) return [...tag.images];
 
         let res = []
@@ -28,13 +28,13 @@ const TagThumbnail: React.FC<TagThumbnailProps> = ({tag}) => {
         }
 
         return res;
-    }
+    }, [tag])
 
     useEffect(() => {
 
-        setImages(getRand());
+        setImages(memoizedRand);
 
-    },[tag.id, tag.images.length])
+    },[memoizedRand])
 
     return (<div className="tag-thumbnail my-4 p-2">
         <Link to={"/tag/"+tag.id} className="tag-link">

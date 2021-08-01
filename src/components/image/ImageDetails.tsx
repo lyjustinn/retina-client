@@ -4,6 +4,7 @@ import { Image } from '../../types/imageTypes';
 import { getImage } from '../../util/image/imageService';
 import TagContainer from '../tag/TagContainer';
 import '../../styles/imageDetailsStyles.css';
+import { useHistory } from 'react-router';
 
 interface ImageDetailsProps {
     id : number
@@ -11,12 +12,13 @@ interface ImageDetailsProps {
 
 const ImageDetails: React.FC<ImageDetailsProps> = ({id}) => {
     const [image, setImage] = useState<Image | null>(null);
+    const history = useHistory();
 
     useEffect(() => {
         getImage(id)
         .then( res => setImage(res))
-        .catch( e => console.error(e));
-    },[id])
+        .catch( e => history.push("/404"));
+    },[id, history])
 
     return (
         <div>

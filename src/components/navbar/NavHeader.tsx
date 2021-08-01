@@ -60,12 +60,10 @@ const NavHeader: React.FC = () => {
             <Container className="justify-content-end">
                 <Nav>
                     <Nav.Item className="mx-4">
-                        <Nav.Link className="text-light" href="/explore">Explore</Nav.Link>
+                        <Link className="retina-text-light text-decoration-none align-middle" to="/explore">Explore</Link>
                     </Nav.Item>
                     <Nav.Item className="mx-4">
-                        <Nav.Link className="text-light" href="/upload/image">
-                            Upload
-                        </Nav.Link>
+                        <Link className="retina-text-light text-decoration-none align-middle" to="/upload/image">Upload</Link>
                     </Nav.Item>
                     <Nav.Item className="mx-4 d-flex align-items-center">
                         <button className="retina-btn-icon" onClick={handleClick}>
@@ -91,7 +89,7 @@ const NavHeader: React.FC = () => {
                                     currentUser ?
 
                                     <>
-                                        <h6 className="retina-text-dark dropdown-title px-4 py-2">Signed in as {currentUser.name}</h6>
+                                        <h6 className="retina-text-dark dropdown-title px-4 py-2">{currentUser.name}</h6>
                                         <Link className="w-100 px-4 py-2 retina-text-blue retina-dropdown-item" to={"/user/"+currentUser.id}>Profile</Link>
                                         <Link className="w-100 px-4 py-2 retina-text-blue retina-dropdown-item" to={"/edit/user"}>Edit Profile</Link>
                                     </>

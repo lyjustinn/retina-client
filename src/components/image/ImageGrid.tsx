@@ -44,7 +44,12 @@ const ImageGrid: React.FC<ImageGridProps> = ({GridItem, num, images}) => {
     }
 
     return <div className="d-flex flex-wrap position-relative justify-content-between">
-        {renderColumns()}
+        { images.length > 0 ? renderColumns() : 
+            <div>
+                <h6>Couldn't Find What You Were Looking For!</h6>
+                <p>Come check back later!</p>
+            </div>
+        }
     </div>;
 }
 export default ImageGrid;
