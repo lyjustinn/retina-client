@@ -27,11 +27,8 @@ export const getRequest = async <T> (path : string, authorized? : boolean) : Pro
 
 export const bodyRequest = async  (path : string, body : string | FormData, authorized? : boolean, put? : boolean) : Promise<boolean> => {
     const fetchOptions = {
-        method: put ? "put" : "put",
-        headers: {
-            'Content-Type': "application/json",
-            "Authorization": ""
-        },
+        method: put ? "put" : "post",
+        headers : {},
         body: body
     }
 
@@ -41,8 +38,18 @@ export const bodyRequest = async  (path : string, body : string | FormData, auth
     if (!url) throw new Error("invalid API url");
     else if (authorized && !jwt) throw new Error("No JWT");
 
-    if (authorized) fetchOptions.headers.Authorization = 'Bearer ' + jwt;
+    if (authorized) {
+        fetchOptions.headers = {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer ' + jwt
+        }
+    } else {
+        fetchOptions.headers = {
+            'Content-Type': "application/json",
+        }
+    }
 
+    console.log(fetchOptions)
     const response = await fetch(url + path, fetchOptions);
     if (!response.ok) throw new Error(`Fetch failed, status code ${response.status}`);
 
