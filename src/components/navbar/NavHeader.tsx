@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 import { useContext } from 'react';
 import { CurrentUserContext } from '../layout/CurrentUser';
 import { Link } from 'react-router-dom';
+import { logout } from '../../util/user/userService';
 
 const NavHeader: React.FC = () => {
     const [input, setInput] = useState({ 
@@ -15,7 +16,7 @@ const NavHeader: React.FC = () => {
         encode: ""
     });
     const [btnAnchor, setBtnAnchor] = useState<HTMLButtonElement | null>(null);
-    const { currentUser } = useContext(CurrentUserContext);
+    const { currentUser, updateUser } = useContext(CurrentUserContext);
     const history = useHistory();
 
     const handleSubmit = (e : React.FormEvent<HTMLFormElement>) => {
@@ -44,6 +45,11 @@ const NavHeader: React.FC = () => {
 
     const handleClose= (e : any) => {
         setBtnAnchor(null);
+    }
+
+    const handleLogout = (e : React.MouseEvent<HTMLAnchorElement>) => {
+        updateUser(true);
+        logout();
     }
 
     return (
@@ -92,6 +98,7 @@ const NavHeader: React.FC = () => {
                                         <h6 className="retina-text-dark dropdown-title px-4 py-2">{currentUser.name}</h6>
                                         <Link className="w-100 px-4 py-2 retina-text-blue retina-dropdown-item" to={"/user/"+currentUser.id}>Profile</Link>
                                         <Link className="w-100 px-4 py-2 retina-text-blue retina-dropdown-item" to={"/edit/user"}>Edit Profile</Link>
+                                        <Link className="w-100 px-4 py-2 retina-text-blue retina-dropdown-item" to="/login" onClick={handleLogout}>Logout</Link>
                                     </>
 
                                     : 

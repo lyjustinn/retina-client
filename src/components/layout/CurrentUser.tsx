@@ -17,7 +17,7 @@ const reducer = (state : { currentUser : null | User }, payload : null | User ) 
 
 interface ContextValue {
     currentUser : User | null
-    updateUser : () => Promise<boolean>
+    updateUser : (logout?: boolean) => Promise<boolean>
 }
 
 const CurrentUser: React.FC<CurrentUserProps> = ({children}) => {
@@ -25,7 +25,12 @@ const CurrentUser: React.FC<CurrentUserProps> = ({children}) => {
     const [userState, dispatch] = useReducer(reducer, initialState);
     const location = useLocation();
 
-    const updateUser = async () : Promise<boolean> => {
+    const updateUser = async (logout? : boolean) : Promise<boolean> => {
+        if (logout) {
+            dispatch(null)
+            return Promise.resolve(false);
+        } 
+
         try {
             let res = await getCurrentUser();
             let user = res;

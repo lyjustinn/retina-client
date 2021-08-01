@@ -61,3 +61,7 @@ export const getUserProfile = async (id : number) : Promise<UserProfile> => {
 export const getCurrentUserProfile = async () : Promise<UserProfile> => {
     return getRequest<UserProfile>("/api/user/current/images", true);
 }
+
+export const logout = () => {
+    cookies.remove("authToken");
+}

@@ -21,7 +21,7 @@ const UserEditPage: React.FC = () => {
                     <ImageGridItem src={src} id={id} image={image} edit={true}/>
     
     return <Layout param="asd" user={null}>
-        <Container>
+        <Container className="mb-4">
             <div className="d-flex w-100 justify-content-center py-4 align-items-center">
                 { user ? <UserEditForm user={user}/> : <></>}
             </div>
