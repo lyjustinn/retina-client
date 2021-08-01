@@ -81,7 +81,7 @@
 /* 12263A, 373F51, 0E0F19 */
 
 .retina-toast {
-    position: absolute;
+    position: fixed;
     bottom: 2em;
     left: 2em;
 }
