@@ -74,7 +74,7 @@ const UserEditForm: React.FC<UserEditFormProps> = ({user}) => {
             </Form>
             {
                 toast.show ?
-                <Toast onClose={hideToast} show={toast.show} className="retina-toast" delay={6000} autohide>
+                <Toast onClose={hideToast} show={toast.show} className="retina-toast bg-light" delay={6000} autohide>
                     <Toast.Header closeButton={false} className="d-flex justify-content-between">
                         <strong className="retina-text-dark-blue">Retina</strong>
                         <button onClick={hideToast} className="retina-btn-icon">
